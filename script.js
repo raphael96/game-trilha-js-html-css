@@ -182,13 +182,14 @@ socket.on('err', (data) => {
 // enviar jogadas para outro jogador
 function playTurn() {
     const clickedTile = cliqueNoTabuleiro;
-    // Emit an event to update other player that you've played your turn.
+    // Emit an event to update other player that you've played your turn, and send the position together...
     //console.log(clickedTile, idSala);
     //console.log("entrou antes socket");
     console.log("chamei o pay turn!");
     socket.emit('playTurn', {
         tile: clickedTile,
         room: idSala,
+        position: cliqueNoTabuleiro,
       });
 }
 
